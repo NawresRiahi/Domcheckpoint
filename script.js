@@ -1,6 +1,17 @@
-var c = document.getElementsByClassName("like");
+/*declaration des variables*/
 
-for (var i = 0; i < c.length; i++) {
+var c = document.getElementsByClassName("like");
+let bt = document.getElementsByClassName("delete");
+let d1 = document.getElementsByClassName("Item");
+var pp = document.getElementsByClassName("plus-btn");
+var m = document.getElementsByClassName("minus-btn");
+var Q = document.getElementsByClassName("Quant");
+var price = document.getElementsByClassName("price");
+const ListP = [1379.0, 176.0, 249.0];
+
+/*Bouton Like*/
+
+for (let i = 0; i < c.length; i++) {
   c[i].onclick = function () {
     if (this.style.color == "black") {
       this.style.color = "red";
@@ -10,28 +21,25 @@ for (var i = 0; i < c.length; i++) {
   };
 }
 
-let bt = document.getElementsByClassName("delete");
-let d1 = document.getElementsByClassName("Item");
-for (var i = 0; i < bt.length; i++) {
+/*Bouton Delete*/
+for (let i = 0; i < bt.length; i++) {
   bt[i].onclick = function () {
     d1[i].style.display = "none";
   };
 }
 
-var p = document.getElementsByClassName("plus-btn");
-var m = document.getElementsByClassName("minus-btn");
-var Q = document.getElementsByClassName("Quant");
-var count = 0;
-Q = count;
-for (var i = 0; i < p.length; i++) {
-  p[i].onclick = function () {
-    count++;
-    Q = count;
+/*Bouton Plus*/
+
+for (let i = 0; i < pp.length; i++) {
+  pp[i].onclick = function () {
+    Q[i].value++;
   };
 }
-for (var j = 0; i < m.length; j++) {
-  m[j].onclick = function () {
-    count--;
-    Q = count;
+/*Bouton moins*/
+for (let i = 0; i < m.length; i++) {
+  m[i].onclick = function () {
+    if (Q[i].value > 1) {
+      Q[i].value--;
+    }
   };
 }
